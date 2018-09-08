@@ -1,0 +1,23 @@
+{
+  "name"        : "home-dashboard",
+  "version"     : "1.2.1",
+  "description" : "Home Dashboard",
+  "author"      : "Jeffrey van Norden <jeffreyvannorden@gmail.com>",
+  "private"     : false,
+  "scripts"     : {
+    "agent": "node bin/agent.js",
+    "web"  : "node bin/web.js"
+  },
+  "dependencies": {
+    "body-parser": "1",
+    "express"    : "4",
+    "lodash"     : "4",
+    "moment"     : "2",
+    "mongoose"   : "5",
+    "yargs"      : "12"
+  },
+  "engines"     : {
+    "node": ">= 4.0.0",
+    "npm" : ">= 3.0.0"
+  }
+}
