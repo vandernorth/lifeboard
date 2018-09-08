@@ -9,12 +9,14 @@
     "web"  : "node bin/web.js"
   },
   "dependencies": {
-    "body-parser": "1",
-    "express"    : "4",
-    "lodash"     : "4",
-    "moment"     : "2",
-    "mongoose"   : "5",
-    "yargs"      : "12"
+    "body-parser"    : "1",
+    "express"        : "4",
+    "lodash"         : "4",
+    "moment"         : "2",
+    "mongoose"       : "5",
+    "request"        : "2",
+    "request-promise": "4",
+    "yargs"          : "12"
   },
   "engines"     : {
     "node": ">= 4.0.0",
