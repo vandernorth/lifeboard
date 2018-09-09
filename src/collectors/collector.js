@@ -5,14 +5,13 @@ class Collector {
     /**
      *
      * @param {object} config
-     * @param {string} config.interval
+     * @param {string} config.interval interval in minutes
      * @param {object} service
      * @param {string} service.url
      * @param {string} service.apiKey
      * @param {string} service.apiSecret
      */
     constructor( config, service ) {
-        this.config      = config;
         this.service     = service;
         this.interval    = config.interval || 60;
         this.lastStarted = new Date('2000-01-01');
@@ -24,7 +23,7 @@ class Collector {
 
     get shouldRun() {
         const diff = Date.now() - this.lastStarted;
-        return (diff / 1000) > this.interval;
+        return (diff / 1000 / 60) > this.interval;
     }
 
     push( stat ) {
@@ -42,7 +41,7 @@ class Collector {
      * @private
      * @return {Promise}
      */
-    request( requestUrl, postData, requestOptions ) {
+    request( requestUrl, postData, requestOptions = {} ) {
         const request = require('request-promise');
 
         const options = {
@@ -50,8 +49,8 @@ class Collector {
             uri:     requestUrl,
             body:    postData,
             headers: {
-                'x-api-key':    this.config.apiKey,
-                'x-api-secret': this.config.apiSecret
+                'x-api-key':    this.service.apiKey,
+                'x-api-secret': this.service.apiSecret
             },
             json:    true
         };

@@ -13,6 +13,7 @@ class CollectorAgent {
         this.collectors = [];
         this.load(_.result(this.config, 'collectors'));
         this.interval = setInterval(() => this.collect(), 20 * 1000);
+        this.collect();
     }
 
     load( collectors ) {
@@ -33,13 +34,14 @@ class CollectorAgent {
         this.collectors
             .filter(c => c.shouldRun)
             .forEach(c => c.collect()
-                .then(() => console.info('done'))
-                .catch(error => console.error('collect error:', error)));
+                .then(result => console.info('[collect-ready]', result))
+                .catch(error => console.error('[collect-error]', error)));
     }
 
     static get Map() {
         return {
-            'nu.nl': './collectors/nu.nl.js'
+            'nu.nl':        './collectors/nu.nl.js',
+            'tweakers.net': './collectors/tweakers.net.js'
         }
     }
 }

@@ -90,15 +90,14 @@ class DataAPI {
                 throw "invalid body";
             }
 
-            Stat.findOne({}, null, { sort: '-_id' })
-                .then(last => {
-                    console.info('I found', last);
+            if ( !req.body.keyHash ) {
+                req.body.keyHash = Crypto.createHash('sha256')
+                    .update(`${req.body.category}.${req.body.from}.${req.body.type}.${req.body.about}`)
+                    .digest('hex');
+            }
 
-                    if ( !req.body.keyHash ) {
-                        req.body.keyHash = Crypto.createHash('sha256')
-                            .update(`${req.body.category}.${req.body.from}.${req.body.type}.${req.body.about}`)
-                            .digest('hex');
-                    }
+            Stat.findOne({ keyHash: req.body.keyHash }, null, { sort: '-_id' })
+                .then(last => {
 
                     if ( !req.body.valueHash ) {
                         req.body.valueHash = Crypto.createHash('sha256')

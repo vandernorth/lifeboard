@@ -7,24 +7,25 @@ const _         = require('lodash'),
 class NuNL extends Collector {
     async collect() {
         this.setStarted();
-        this.url   = "https://www.nu.nl/rss";
+        this.url   = "http://feeds.feedburner.com/tweakers/mixed";
         const feed = await parser.parseURL(this.url);
 
-        const items = feed.items.map(i => {
-            return {
-                title:   i.title,
-                content: i.contentSnippet,
-                link:    i.guid,
-                img:     _.result(i, 'enclosure.url')
-            }
-        });
+        const items = feed.items
+            .filter(i => i.categories.join('').includes('Nieuws'))
+            .map(i => {
+                return {
+                    title:   i.title,
+                    content: i.contentSnippet,
+                    link:    i.guid
+                }
+            });
 
         return this.push({
             //== ID
             category:   'news',
-            from:       'nu.nl',
+            from:       'tweakers.net',
             type:       'highlights',
-            about:      'all',
+            about:      'tech',
             //== Value
             value:      items,
             //== Do not keep history

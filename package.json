@@ -1,25 +1,26 @@
 {
-  "name"        : "home-dashboard",
-  "version"     : "1.2.1",
-  "description" : "Home Dashboard",
-  "author"      : "Jeffrey van Norden <jeffreyvannorden@gmail.com>",
-  "private"     : false,
-  "scripts"     : {
+  "name": "home-dashboard",
+  "version": "1.2.1",
+  "description": "Home Dashboard",
+  "author": "Jeffrey van Norden <jeffreyvannorden@gmail.com>",
+  "private": false,
+  "scripts": {
     "agent": "node bin/agent.js",
-    "web"  : "node bin/web.js"
+    "web": "node bin/web.js"
   },
   "dependencies": {
-    "body-parser"    : "1",
-    "express"        : "4",
-    "lodash"         : "4",
-    "moment"         : "2",
-    "mongoose"       : "5",
-    "request"        : "2",
+    "body-parser": "1",
+    "express": "4",
+    "rss-parser": "3",
+    "lodash": "4",
+    "moment": "2",
+    "mongoose": "5",
+    "request": "2",
     "request-promise": "4",
-    "yargs"          : "12"
+    "yargs": "12"
   },
-  "engines"     : {
+  "engines": {
     "node": ">= 4.0.0",
-    "npm" : ">= 3.0.0"
+    "npm": ">= 3.0.0"
   }
 }
