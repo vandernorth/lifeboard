@@ -12,6 +12,7 @@ class Collector {
      * @param {string} service.apiSecret
      */
     constructor( config, service ) {
+        this.config      = config;
         this.service     = service;
         this.interval    = config.interval || 60;
         this.lastStarted = new Date('2000-01-01');

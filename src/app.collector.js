@@ -17,17 +17,19 @@ class CollectorAgent {
     }
 
     load( collectors ) {
-        collectors.forEach(collector => {
-            console.info("[load]    ", collector.type);
-            const type = CollectorAgent.Map[collector.type];
-            if ( type ) {
-                const Type          = require(type),
-                      thisCollector = new Type(collector, this.config.service);
-                this.collectors.push(thisCollector);
-            } else {
-                console.warn(`[loadError] Cannot load collector type ${collector.type}.`);
-            }
-        });
+        collectors
+            .filter(c => c.enabled !== false)
+            .forEach(collector => {
+                console.info("[load]    ", collector.type);
+                const type = CollectorAgent.Map[collector.type];
+                if ( type ) {
+                    const Type          = require(type),
+                          thisCollector = new Type(collector, this.config.service);
+                    this.collectors.push(thisCollector);
+                } else {
+                    console.warn(`[loadError] Cannot load collector type ${collector.type}.`);
+                }
+            });
     }
 
     collect() {
@@ -40,8 +42,11 @@ class CollectorAgent {
 
     static get Map() {
         return {
-            'nu.nl':        './collectors/nu.nl.js',
-            'tweakers.net': './collectors/tweakers.net.js'
+            'nu.nl':           './collectors/nu.nl.js',
+            'google.location': './collectors/google.location.js',
+            'openpli.status':  './collectors/openpli.status.js',
+            'ziggo.status':    './collectors/ziggo.status.js',
+            'tweakers.net':    './collectors/tweakers.net.js'
         }
     }
 }

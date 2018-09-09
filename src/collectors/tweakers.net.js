@@ -4,7 +4,7 @@ const _         = require('lodash'),
       RssParser = require('rss-parser'),
       parser    = new RssParser();
 
-class NuNL extends Collector {
+class TweakersNet extends Collector {
     async collect() {
         this.setStarted();
         this.url   = "http://feeds.feedburner.com/tweakers/mixed";
@@ -35,4 +35,4 @@ class NuNL extends Collector {
 
 }
 
-module.exports = NuNL;
+module.exports = TweakersNet;
