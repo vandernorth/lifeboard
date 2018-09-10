@@ -2,7 +2,8 @@
 const Collector = require('./collector'),
       request   = require('request-promise');
 
-class OpenPli extends Collector {
+//== See https://www.developers.meethue.com/documentation/getting-started
+class Hue extends Collector {
     async collect() {
         this.setStarted();
 
@@ -15,7 +16,7 @@ class OpenPli extends Collector {
         return this.push({
             //== ID
             category:   'home',
-            from:       'open-pli',
+            from:       'hue',
             type:       'status',
             about:      this.config.name,
             //== Value
@@ -27,4 +28,4 @@ class OpenPli extends Collector {
 
 }
 
-module.exports = OpenPli;
+module.exports = Hue;

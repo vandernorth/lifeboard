@@ -36,6 +36,14 @@ class Collector {
     }
 
     /**
+     *
+     * @param {Google} connector
+     */
+    setConnector( connector ) {
+        this.connector = connector;
+    }
+
+    /**
      * @param {string}  requestUrl
      * @param {object}  [postData]
      * @param {object}  [requestOptions]

@@ -1,5 +1,6 @@
 "use strict";
-const _ = require('lodash');
+const _         = require('lodash'),
+      Connector = require('./app.connect');
 
 class CollectorAgent {
 
@@ -25,6 +26,12 @@ class CollectorAgent {
                 if ( type ) {
                     const Type          = require(type),
                           thisCollector = new Type(collector, this.config.service);
+
+                    if ( collector.connector ) {
+                        const thisConnector = _.find(this.config.connectors, { name: collector.connector });
+                        thisCollector.setConnector(Connector.configToConnector(thisConnector));
+                    }
+
                     this.collectors.push(thisCollector);
                 } else {
                     console.warn(`[loadError] Cannot load collector type ${collector.type}.`);
@@ -37,7 +44,7 @@ class CollectorAgent {
             .filter(c => c.shouldRun)
             .forEach(c => c.collect()
                 .then(result => console.info('[collect-ready]', result))
-                .catch(error => console.error('[collect-error]', error)));
+                .catch(error => console.error('[collect-error]', String(error), error)));
     }
 
     static get Map() {
