@@ -7,34 +7,38 @@ A real-life live dashboard currently with the following data:
  - Ziggo (NL)   - Internet status
  - Google       - My location and shared locations (alpha)
  
+ ## Collector 
+ Docker-based runner:
+ 
+ ``docker run -v /var/config:/config:ro -a stdin -a stdout -a stderr -ti collector``
+ 
  ### In development
  
  - INFO
      - Bunq - Last transactions
      - Bunq - Account info
-     - Google - Mail
-     - Google - Calendar
+     - Google - Calendar / Tasks / Keep
+     - p1 - electricity / gas
      - Weather - current
      - Weather - forecast
-     - Nest - Temperature
-     - Nest - Status (SmokeDetector)
-     - p12 - electricity / gas
-     - Spotify - Current track
      - Hue - Status / lights
-     - WiFi/network - Clients
-     - Front-door-bell
-     - Scale / Weight / Fitbit / Health / Sleep
-     - PostNL - Upcoming Mail and packages
-     - AH - Orders
+     - << less important >>
+       - WiFi/network - Clients
+       - Spotify - Current track
+       - AH - Orders
+       - Front-door-bell
+       - Scale / Weight / Fitbit / Health / Sleep
+       - PostNL/DHL - Upcoming Mail and packages
+       - Nest - Status (SmokeDetector)
+       - Nest - Temperature
  - EVENTS
     - Bunq - New transactions
     - Google - Calendar reminder
     - Nest - Smoke
-    - Google - Notable location change
     - Change of (fenced) locations
+        - Google - Notable location change
  - Intelligence
     - Time to home/work/nextCalendarlocation
-    - 
  - ACTIONS
     - [hue] change lights
     - [spotify] change track / volume
