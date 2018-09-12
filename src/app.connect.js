@@ -75,14 +75,17 @@ class ConnectorApp {
         this.app.get('/', ( req, res ) => {
             let html = `<h3>Connect</h3>`;
             this._connectors.forEach(c => {
-                html += `<a href="${c.link}">Connect to ${c.name}</a>`;
+                html += `<a href="${c.link}">Connect to ${c.name}</a><br>`;
             });
             res.type('text/html').end(html);
         })
     }
 
     static get Map() {
-        return { 'google': './connectors/google.js' }
+        return {
+            'google': './connectors/google.js',
+            'bunq':   './connectors/bunq.js'
+        }
     }
 }
 

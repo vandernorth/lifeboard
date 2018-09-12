@@ -53,7 +53,8 @@ class CollectorAgent {
             'google.location': './collectors/google.location.js',
             'openpli.status':  './collectors/openpli.status.js',
             'ziggo.status':    './collectors/ziggo.status.js',
-            'tweakers.net':    './collectors/tweakers.net.js'
+            'tweakers.net':    './collectors/tweakers.net.js',
+            'bunq.accounts':    './collectors/bunq.accounts.js'
         }
     }
 }

@@ -2,7 +2,7 @@
 const { google } = require('googleapis');
 
 class Google {
-    constructor( service, router ) {
+    constructor( service ) {
         this.service = service;
         this.initialize();
     }
@@ -19,11 +19,10 @@ class Google {
 
     setRoutes() {
         this.router.get(this.link, ( req, res ) => {
-            //res.end(`<a href="${this.generateUrl()}">Go to Google</a>`);
             res.redirect(this.generateUrl());
         });
 
-        this.router.get(service.redirectPath, async ( req, res ) => {
+        this.router.get(this.service.redirectPath, async ( req, res ) => {
             const code = req.query.code;
             if ( code ) {
                 console.info('code:', code);

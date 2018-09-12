@@ -1,28 +1,33 @@
 {
-  "name": "home-dashboard",
-  "version": "1.2.1",
-  "description": "Home Dashboard",
-  "author": "Jeffrey van Norden <jeffreyvannorden@gmail.com>",
-  "private": false,
-  "scripts": {
+  "name"                : "home-dashboard",
+  "version"             : "1.2.1",
+  "description"         : "Home Dashboard",
+  "author"              : "Jeffrey van Norden <jeffreyvannorden@gmail.com>",
+  "private"             : false,
+  "scripts"             : {
     "agent": "node bin/agent.js",
-    "web": "node bin/web.js"
+    "web"  : "node bin/web.js"
   },
-  "dependencies": {
-    "body-parser": "1",
-    "cheerio": "1.0.0-rc.2",
-    "express": "4",
-    "googleapis": "33",
-    "lodash": "4",
-    "moment": "2",
-    "mongoose": "5",
-    "request": "2",
+  "dependencies"        : {
+    "json-store"     : "1",
+    "body-parser"    : "1",
+    "express"        : "4",
+    "lodash"         : "4",
+    "moment"         : "2",
+    "request"        : "2",
     "request-promise": "4",
-    "rss-parser": "3",
-    "yargs": "12"
+    "yargs"          : "12"
   },
-  "engines": {
+  "optionalDependencies": {
+    "@bunq-community/bunq-js-client": "0",
+    "cheerio"                       : "1.0.0-rc.2",
+    "googleapis"                    : "33",
+    "mongoose"                      : "5",
+    "rss-parser"                    : "3",
+    "serialport"                    : "7"
+  },
+  "engines"             : {
     "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
+    "npm" : ">= 3.0.0"
   }
 }

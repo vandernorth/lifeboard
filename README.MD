@@ -24,6 +24,8 @@ A real-life live dashboard currently with the following data:
      - WiFi/network - Clients
      - Front-door-bell
      - Scale / Weight / Fitbit / Health / Sleep
+     - PostNL - Upcoming Mail and packages
+     - AH - Orders
  - EVENTS
     - Bunq - New transactions
     - Google - Calendar reminder
