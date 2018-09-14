@@ -6,6 +6,7 @@ A real-life live dashboard currently with the following data:
  - OpenPli      - Current Channel 
  - Ziggo (NL)   - Internet status
  - Google       - My location and shared locations (alpha)
+ - Google       - Calendar & Tasks
  
  ## Collector 
  Docker-based runner:
@@ -15,12 +16,15 @@ A real-life live dashboard currently with the following data:
  ### In development
  
  - INFO
-     - Bunq - Last transactions
-     - Bunq - Account info
-     - Google - Calendar / Tasks / Keep
      - p1 - electricity / gas
      - Weather - current
      - Weather - forecast
+     - Bitcoin: Stockprive
+     - Bitcoin: Bittrex
+     - Bitcoin: Binance
+     - Bitcoin: BL3P
+     - Bunq - Last transactions
+     - Bunq - Account info
      - Hue - Status / lights
      - << less important >>
        - WiFi/network - Clients

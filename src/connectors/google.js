@@ -63,10 +63,8 @@ class Google {
 
     generateUrl() {
 
-        // generate a url that asks permissions for Google+ and Google Calendar scopes
         const scopes = [
             'https://www.googleapis.com/auth/plus.me',
-            //'https://www.googleapis.com/auth/calendar',
             'https://www.googleapis.com/auth/calendar.readonly',
             'https://www.googleapis.com/auth/fitness.activity.read',
             'https://www.googleapis.com/auth/gmail.readonly',

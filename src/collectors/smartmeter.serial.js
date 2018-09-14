@@ -53,8 +53,16 @@ class SmartMeter extends Collector {
 
                 //== End of message
                 if ( data === '!' && this.firstPassOk === true ) {
-                    this._lastValue = SmartMeter.parseMessage(this.messageBuilder);
+                    this._lastValue     = SmartMeter.parseMessage(this.messageBuilder);
                     this.messageBuilder = [];
+                    this.push({
+                        category:   'home',
+                        from:       'SmartMeter',
+                        type:       'current',
+                        about:      this.config.address,
+                        value:      this._lastValue,
+                        updateLast: true
+                    });
                 } else if ( data === '!' ) {
                     console.info('[SmartMeter] First message ending received. Capture can start.');
                     this.firstPassOk = true;
@@ -63,7 +71,7 @@ class SmartMeter extends Collector {
         });
     }
 
-    static parseMessage ( message ) {
+    static parseMessage( message ) {
 
         /** [Message to parse]
          0-0:96.1.1(4B414C37303035313738373238363133);
