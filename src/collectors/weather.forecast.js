@@ -5,10 +5,7 @@ const Collector = require('./collector'),
 class WeatherForecast extends Collector {
     async collect() {
         this.setStarted();
-        await this.getRainfall();
-        await this.getCurrentWeather();
-        await this.getForecast();
-        return true;
+        return Promise.all([this.getRainfall(), this.getCurrentWeather(), this.getForecast()]);
     }
 
     async getRainfall() {

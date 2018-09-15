@@ -1,12 +1,17 @@
 # LifeBoard
 A real-life live dashboard currently with the following data:
 
- - Tweakers.net - News Feed
- - Nu.nl        - News Feed
- - OpenPli      - Current Channel 
- - Ziggo (NL)   - Internet status
- - Google       - My location and shared locations (alpha)
- - Google       - Calendar & Tasks
+ - Tweakers.net     - News Feed
+ - Nu.nl            - News Feed
+ - OpenPli          - Current Channel 
+ - Ziggo (NL)       - Internet status
+ - Google           - My location and shared locations (alpha)
+ - Google           - Calendar & Tasks
+ - Weather          - Current
+ - Weather          - Forecast
+ - P1               - Electricity and Gas usage meter
+ - Rijkswaterstaat  - Roadworks (NL)
+ - ANWB             - TrafficJams (NL)
  
  ## Collector 
  Docker-based runner:
@@ -16,9 +21,6 @@ A real-life live dashboard currently with the following data:
  ### In development
  
  - INFO
-     - p1 - electricity / gas
-     - Weather - current
-     - Weather - forecast
      - Bitcoin: Stockprive
      - Bitcoin: Bittrex
      - Bitcoin: Binance

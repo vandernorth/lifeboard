@@ -49,14 +49,16 @@ class CollectorAgent {
 
     static get Map() {
         return {
-            'nu.nl':            './collectors/nu.nl.js',
-            'google.location':  './collectors/google.location.js',
-            'google.info':      './collectors/google.services.js',
-            'weather.forecast': './collectors/weather.forecast.js',
-            'openpli.status':   './collectors/openpli.status.js',
-            'ziggo.status':     './collectors/ziggo.status.js',
-            'tweakers.net':     './collectors/tweakers.net.js',
-            'bunq.accounts':    './collectors/bunq.accounts.js'
+            'nu.nl':             './collectors/nu.nl.js',
+            'google.location':   './collectors/google.location.js',
+            'google.info':       './collectors/google.services.js',
+            'weather.forecast':  './collectors/weather.forecast.js',
+            'openpli.status':    './collectors/openpli.status.js',
+            'ziggo.status':      './collectors/ziggo.status.js',
+            'tweakers.net':      './collectors/tweakers.net.js',
+            'traffic.roadworks': './collectors/traffic.roadworks.js',
+            'traffic.jams':      './collectors/traffic.jams.js',
+            'bunq.accounts':     './collectors/bunq.accounts.js'
         }
     }
 }
